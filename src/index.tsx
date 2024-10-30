@@ -9,14 +9,44 @@ const LINKING_ERROR =
 const ConsistyPayswiffMatm = NativeModules.ConsistyPayswiffMatm
   ? NativeModules.ConsistyPayswiffMatm
   : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+    {},
+    {
+      get() {
+        throw new Error(LINKING_ERROR);
+      },
+    }
+  );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return ConsistyPayswiffMatm.multiply(a, b);
+
+export interface TransactionResponse {
+  statusCode: string;
+  message: string;
+  rrn?: string;
+  accountHolderName?: string;
+  accountBalance?: string;
+  cardType?: string;
+  cardBrand?: string;
+  transactionDateTime?: string;
+  merchantId?: number;
+  terminalSerialNo?: string;
+  ledgerBalance?: string;
 }
+
+export interface TransactionConfig {
+  transactionType: string;
+  amount: string;
+  userName: string;
+  password: string;
+  orderId: string;
+  defaultPassword: string;
+  deviceName: string;
+  macAddress: string;
+}
+
+export function initiateTransaction(config: TransactionConfig): Promise<TransactionResponse> {
+  return ConsistyPayswiffMatm.initiateTransaction(config);
+}
+
+export default {
+  initiateTransaction,
+};
