@@ -10,7 +10,7 @@ import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
- 
+
 
 //refer : https://stackoverflow.com/questions/53411220/pass-activity-result-into-a-react-native-module
 
@@ -32,7 +32,11 @@ class ConsistyPayswiffMatmModule(reactContext: ReactApplicationContext) :
     reactContext.addActivityEventListener(this) //Register this native module as Activity result listener
   }
 
-  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+  override fun onNewIntent(p0: Intent?) {
+
+  }
+
+  override fun onActivityResult(p0: Activity?, requestCode: Int, resultCode: Int, data: Intent?) {
     if (requestCode == REQUEST_CODE) {
       val promise = transactionPromise ?: return
       transactionPromise = null
@@ -80,6 +84,8 @@ class ConsistyPayswiffMatmModule(reactContext: ReactApplicationContext) :
 
     currentActivity.startActivityForResult(intent, REQUEST_CODE)
   }
+
+
 }
 
 

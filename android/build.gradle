@@ -69,6 +69,8 @@ android {
   buildTypes {
     release {
       minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
     }
   }
 
@@ -88,12 +90,17 @@ repositories {
 }
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
+def react_native_version = "0.73.4"
 
 dependencies {
   // For < 0.71, this will be from the local maven repo
   // For > 0.71, this will be replaced by `com.facebook.react:react-android:$version` by react gradle plugin
   //noinspection GradleDynamicVersion
-  implementation 'com.facebook.react:react-native:0.20.1'
+  //implementation 'com.facebook.react:react-native:0.74.3'
+  implementation "com.facebook.react:react-android:${react_native_version}"
+  implementation "com.facebook.react:hermes-android:${react_native_version}"  // Recommended
+
+
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation(project(":consisty_payswiff_sdk"))
   implementation(project(":payswiff_sdk"))

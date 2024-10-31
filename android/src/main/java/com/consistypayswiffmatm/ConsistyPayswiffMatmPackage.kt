@@ -13,7 +13,7 @@ class ConsistyPayswiffMatmPackage : ReactPackage {
     return listOf(ConsistyPayswiffMatmModule(reactContext))
   }
 
-  override fun createJSModules(): MutableList<Class<out JavaScriptModule>> {
+  fun createJSModules(): MutableList<Class<out JavaScriptModule>> {
     return Collections.emptyList();
   }
 
