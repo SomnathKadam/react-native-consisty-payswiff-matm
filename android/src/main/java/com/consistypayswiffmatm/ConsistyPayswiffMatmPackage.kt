@@ -5,6 +5,7 @@ import com.facebook.react.bridge.JavaScriptModule
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ViewManager
+import java.util.Collections
 
 
 class ConsistyPayswiffMatmPackage : ReactPackage {
@@ -13,7 +14,7 @@ class ConsistyPayswiffMatmPackage : ReactPackage {
   }
 
   override fun createJSModules(): MutableList<Class<out JavaScriptModule>> {
-     return mutableListOf()
+    return Collections.emptyList();
   }
 
   override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
