@@ -13,7 +13,7 @@ class ConsistyPayswiffMatmPackage : ReactPackage {
   }
 
   override fun createJSModules(): MutableList<Class<out JavaScriptModule>> {
-    TODO("Not yet implemented")
+     return mutableListOf()
   }
 
   override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
