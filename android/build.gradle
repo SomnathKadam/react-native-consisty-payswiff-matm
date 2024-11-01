@@ -100,9 +100,8 @@ dependencies {
   implementation "com.facebook.react:react-android:${react_native_version}"
   implementation "com.facebook.react:hermes-android:${react_native_version}"  // Recommended
 
-
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation(project(":consisty_payswiff_sdk"))
-  implementation(project(":payswiff_sdk"))
+  api project(":payswiff_sdk")
+  api project(":consisty_payswiff_sdk")
 }
 

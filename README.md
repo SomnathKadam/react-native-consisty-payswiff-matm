@@ -12,11 +12,56 @@ npm install react-native-consisty-payswiff-matm
 
 
 ```js
-import { multiply } from 'react-native-consisty-payswiff-matm';
+import { NativeModules, PermissionsAndroid, Platform } from 'react-native';
+
+const LINKING_ERROR = 'Native module not found';
+const ConsistyPayswiffMatm = NativeModules.ConsistyPayswiffMatm
+  ? NativeModules.ConsistyPayswiffMatm
+  : new Proxy(
+    {},
+    {
+      get() {
+        throw new Error(LINKING_ERROR);
+      },
+    }
+  );
+
+const initiateMatmTransaction = async (config: TransactionConfig): Promise<TransactionResult> => {
+  try {
+    const result = await ConsistyPayswiffMatm.initiateTransaction(config);
+    return result;
+  } catch (error) {
+    throw error;
+  }
+};
 
 // ...
 
-const result = await multiply(3, 7);
+const config: TransactionConfig = {
+        transactionType: transactionType,
+        amount: amount,
+        merchantKey: merchantKey,
+        partnerKey: partnerKey,
+        orderId: orderId,
+        deviceName: deviceName,
+        deviceMACAddress: deviceMACAddress
+      };
+
+      setLoading(true);
+      const resultData = await initiateMatmTransaction(config);
+
+      const {
+        statusCode,
+        message,
+        rrn,
+        accountHolderName,
+        accountBalance,
+        cardBrand,
+        cardType,
+        transactionDateTime,
+        terminalSerialNo,
+        ledgerBalance,
+      } = resultData;
 ```
 
 

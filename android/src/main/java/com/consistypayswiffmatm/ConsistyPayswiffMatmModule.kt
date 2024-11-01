@@ -11,7 +11,6 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
 
-
 //refer : https://stackoverflow.com/questions/53411220/pass-activity-result-into-a-react-native-module
 
 class ConsistyPayswiffMatmModule(reactContext: ReactApplicationContext) :
@@ -75,11 +74,11 @@ class ConsistyPayswiffMatmModule(reactContext: ReactApplicationContext) :
     val intent = Intent(currentActivity, MainActivity::class.java).apply {
       putExtra("transactionType", config.getString("transactionType"))
       putExtra("amount", config.getString("amount"))
-      putExtra("userName", config.getString("userName"))
-      putExtra("password", config.getString("password"))
+      putExtra("merchantKey", config.getString("merchantKey"))
+      putExtra("partnerKey", config.getString("partnerKey"))
       putExtra("orderId", config.getString("orderId"))
-      putExtra("defaultPassword", config.getString("defaultPassword"))
-      putExtra("appName", "${config.getString("deviceName")}#${config.getString("macAddress")}")
+      putExtra("deviceName", config.getString("deviceName"))
+      putExtra("deviceMACAddress", config.getString("deviceMACAddress"))
     }
 
     currentActivity.startActivityForResult(intent, REQUEST_CODE)

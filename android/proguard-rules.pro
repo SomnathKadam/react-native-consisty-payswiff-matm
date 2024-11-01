@@ -11,6 +11,16 @@
 
 # Keep your package classes
 
+# Retrofit
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class retrofit2.** { *; }
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
+-keepclassmembers,allowshrinking,allowobfuscation interface * {
+    @retrofit2.http.* <methods>;
+}
 
 
 # Retrofit Rules
@@ -55,8 +65,27 @@
 -keep class ps.module.** { *; }
 -keep class ps.sdk.** { *; }
 
+-keepclassmembers class com.pnsol.sdk.** { *; }
+-keepclassmembers class ps.module.** { *; }
+-keepclassmembers class ps.sdk.** { *; }
+
 
 
 # Keep all model classes used by Retrofit/Gson
 -keep class ps.module.network.** { *; }
 -keep class ps.sdk.mpay.** { *; }
+
+# Jackson
+-keep class org.codehaus.** { *; }
+-keepnames class com.fasterxml.jackson.** { *; }
+-keepnames interface com.fasterxml.jackson.** { *; }
+-dontwarn org.codehaus.jackson.**
+-keep class com.pnsol.** { *; }
+
+
+# Jackson rules
+-keep class org.codehaus.** { *; }
+-keepclassmembers class * {
+    @org.codehaus.jackson.annotate.* *;
+}
+-dontwarn org.codehaus.jackson.**
