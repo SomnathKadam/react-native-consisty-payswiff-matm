@@ -1,6 +1,6 @@
 {
   "name": "react-native-consisty-payswiff-matm",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Payswiff MATM device SDK for react-native in android",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
