@@ -89,3 +89,26 @@
     @org.codehaus.jackson.annotate.* *;
 }
 -dontwarn org.codehaus.jackson.**
+
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn com.clevertap.android.sdk.CleverTapAPI
+-dontwarn com.google.firebase.analytics.FirebaseAnalytics
+-dontwarn com.google.firebase.crashlytics.FirebaseCrashlytics
+-dontwarn org.joda.time.DateMidnight$Property
+-dontwarn org.joda.time.DateMidnight
+-dontwarn org.joda.time.DateTime
+-dontwarn org.joda.time.DateTimeZone
+-dontwarn org.joda.time.LocalDate$Property
+-dontwarn org.joda.time.LocalDate
+-dontwarn org.joda.time.LocalDateTime$Property
+-dontwarn org.joda.time.LocalDateTime
+-dontwarn org.joda.time.Period
+-dontwarn org.joda.time.ReadableDateTime
+-dontwarn org.joda.time.ReadableInstant
+-dontwarn org.joda.time.ReadablePartial
+-dontwarn org.joda.time.ReadablePeriod
+-dontwarn org.joda.time.format.DateTimeFormatter
+-dontwarn org.joda.time.format.ISODateTimeFormat
+-dontwarn org.w3c.dom.bootstrap.DOMImplementationRegistry
+-dontwarn ps.module.utilities.R$color
+-dontwarn tech.gusavila92.websocketclient.WebSocketClient
