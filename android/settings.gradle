@@ -1,2 +1,1 @@
 include ':payswiff_sdk'
-include ':consisty_payswiff_sdk'
