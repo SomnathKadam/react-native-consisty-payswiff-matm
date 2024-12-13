@@ -102,5 +102,6 @@ dependencies {
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   api project(":payswiff_sdk")
+  api project(":payswiff_core_sdk")
 }
 
